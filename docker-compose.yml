@@ -1,0 +1,17 @@
+version: "2"
+services:
+  web:
+    image: mileschou/phalcon
+    container_name: php-service
+    volumes:
+    - .:/src
+    ports:
+    - 8000:80
+    links:
+      - db
+  db:
+    image: mongo
+    container_name: php-service-mongodb
+    ports:
+    - 27017:27017
+
